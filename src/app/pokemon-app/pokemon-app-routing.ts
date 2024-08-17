@@ -15,6 +15,11 @@ const Routes: Route[] = [
         path: 'home',
         loadComponent: () => import('./home/home.component'),
       },
+      {
+        path: 'pokemon-characters',
+        loadComponent: () =>
+          import('./pokemon-characters/pokemon-characters.component'),
+      },
     ],
   },
 ];
