@@ -3,7 +3,7 @@
   <h6>
     {{ capitalize(pokemonDataObject().name) }}
   </h6>
-  @if(pokemonDataObject().sprites.front_default == null){
+  @if(imageCard() == null){
   <img
     mat-card-image
     src="https://i.pinimg.com/550x/59/8c/5d/598c5da8a0cf4d50a8e55bf93307b251.jpg"
@@ -12,12 +12,7 @@
   />
   <p style="color: brown">Image not found</p>
   } @else {
-  <img
-    mat-card-image
-    [src]="pokemonDataObject().sprites.front_default"
-    alt="Photo"
-    style="width: 8vw"
-  />}
+  <img mat-card-image [src]="imageCard()" alt="Photo" style="width: 8vw" />}
   <p>
     Type:
     {{ capitalize(pokemonDataObject().types[0].type.name) }}

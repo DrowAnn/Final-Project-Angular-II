@@ -24,6 +24,7 @@ export class CardsComponent implements OnInit {
   @Input() pokemonUrl: string = '';
   pokemonDataObject = signal<Pokemon>({} as Pokemon);
   loading = signal<boolean>(true);
+  imageCard = signal<string>('');
 
   constructor(
     private pokemonapiService: PokemonapiService,
@@ -34,6 +35,7 @@ export class CardsComponent implements OnInit {
     this.pokemonapiService.getPokemonData(this.pokemonUrl).subscribe({
       next: (pokemonData: any) => {
         this.pokemonDataObject.set(pokemonData);
+        this.imageCard.set(this.pokemonDataObject().sprites.front_default);
         this.loading.set(false);
       },
       error: (err: any) => {
