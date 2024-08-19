@@ -44,7 +44,11 @@ export class FloatingDialogComponent implements OnInit, OnDestroy {
 
   playSound() {
     const audio = new Audio();
-    audio.src = this.sound();
+    audio.src =
+      this.sound() != null
+        ? this.sound()
+        : 'https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/25.ogg';
+    console.log(this.sound());
     audio.load();
     audio.play();
   }
