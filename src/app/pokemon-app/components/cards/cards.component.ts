@@ -1,11 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { PokemonapiService } from '../../../services/pokemonapi.service';
 import { Pokemon } from '../../../interfaces/pokemon';
 import { MatDialog } from '@angular/material/dialog';
 import { FloatingDialogComponent } from '../floating-dialog/floating-dialog.component';
-import { sign } from 'crypto';
 
 @Component({
   selector: 'app-cards',
@@ -13,6 +18,7 @@ import { sign } from 'crypto';
   imports: [MatButtonModule, CommonModule, FloatingDialogComponent],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardsComponent implements OnInit {
   @Input() pokemonUrl: string = '';

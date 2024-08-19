@@ -24,16 +24,20 @@
       src="https://i.pinimg.com/550x/59/8c/5d/598c5da8a0cf4d50a8e55bf93307b251.jpg"
       alt="Photo"
     />
+    } @else { @if (pokemonExtractedData().sprites.back_default != null) {
+    <img mat-card-image [src]="actualImage()" alt="Photo" />
     } @else {
     <img
       mat-card-image
       [src]="pokemonExtractedData().sprites.front_default"
       alt="Photo"
     />
-    }
+    } }
     <mat-card-content>
       <ul>
-        <li>Type: {{ pokemonExtractedData().types[0].type.name }}</li>
+        <li>
+          Type: {{ capitalize(pokemonExtractedData().types[0].type.name) }}
+        </li>
         <li>Height: {{ pokemonExtractedData().height / 10 }} Mts</li>
         <li>Weight: {{ pokemonExtractedData().weight / 10 }} Kg</li>
       </ul>
