@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './pokemon-app/layout/header/header.component';
 import { FooterComponent } from './pokemon-app/layout/footer/footer.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     MatButtonModule,
     MatIconModule,
+    RouterModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

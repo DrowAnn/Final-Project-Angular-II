@@ -1,0 +1,48 @@
+@if (loading() == false) {
+<div class="pollo">
+  <h6 style="padding-left: 4%; padding-top: 4%; margin: 0%; color: #ffabf3">
+    {{ capitalize(pokemonExtractedData().name) }}`s Card
+  </h6>
+  <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{
+        capitalize(pokemonExtractedData().name)
+      }}</mat-card-title>
+      <mat-card-subtitle
+        >Exp:
+        {{
+          pokemonExtractedData().base_experience == null
+            ? "Data not registered"
+            : pokemonExtractedData().base_experience
+        }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    @if(pokemonExtractedData().sprites.front_default == null){
+    <img
+      mat-card-image
+      src="https://i.pinimg.com/550x/59/8c/5d/598c5da8a0cf4d50a8e55bf93307b251.jpg"
+      alt="Photo"
+    />
+    } @else {
+    <img
+      mat-card-image
+      [src]="pokemonExtractedData().sprites.front_default"
+      alt="Photo"
+    />
+    }
+    <mat-card-content>
+      <ul>
+        <li>Type: {{ pokemonExtractedData().types[0].type.name }}</li>
+        <li>Height: {{ pokemonExtractedData().height / 10 }} Mts</li>
+        <li>Weight: {{ pokemonExtractedData().weight / 10 }} Kg</li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+} @else {
+<mat-spinner class="spinner"></mat-spinner>
+}

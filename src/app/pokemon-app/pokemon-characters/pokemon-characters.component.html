@@ -1,1 +1,11 @@
-<p>pokemon-characters works!</p>
+<h1 style="text-align: center">¡PokeCards!</h1>
+
+<div class="gridPokemons">
+  @for (pokemonInList of pokemonsPage().results; track pokemonInList.name) {
+  <app-cards [pokemonUrl]="pokemonInList.url" />
+  }
+</div>
+
+<div class="paginator">
+  <app-paginator (emisor)="updateNameOrId($event)" />
+</div>

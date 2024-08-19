@@ -1,0 +1,25 @@
+.pollo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.example-card {
+  width: 16vw;
+  margin: 4%;
+  color: #ffabf3;
+  overflow-x: visible;
+}
+
+.example-header-image {
+  background-image: url("https://regiodeco.com/wp-content/uploads/sites/80/2022/04/Image00048-4.jpg");
+  background-size: cover;
+}
+
+.spinner {
+  align-self: center;
+  justify-self: center;
+}

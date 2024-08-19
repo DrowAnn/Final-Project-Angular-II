@@ -1,20 +1,51 @@
 <app-header />
 
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-    Sidenav content
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    [(opened)]="opened"
+    class="sideNavContainer"
+    style="background-color: rgb(40, 40, 40); border-radius: 0; width: 12vw"
+  >
+    <div class="sideNavButtons">
+      <button
+        mat-button
+        [routerLink]="['/']"
+        routerLinkActive="active"
+        style="font-size: large"
+      >
+        Home
+      </button>
+    </div>
+    <div class="sideNavButtons">
+      <button
+        mat-button
+        [routerLink]="['/pokemon-characters']"
+        routerLinkActive="active"
+        style="font-size: large"
+      >
+        PokeCards
+      </button>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <main class="main-container">
-      <button
-        mat-icon-button
-        style="background-color: black"
-        (click)="sidenav.toggle()"
-      >
-        <mat-icon style="color: antiquewhite">menu</mat-icon>
-      </button>
-      <router-outlet />
+      <div style="background-color: rgb(40, 40, 40); padding: 6px">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          @if (opened) {
+          <mat-icon style="color: antiquewhite">close</mat-icon>
+          } @else {
+          <mat-icon style="color: antiquewhite">adb</mat-icon>
+          }
+        </button>
+      </div>
+      <!-- Router -->
+      <div style="padding: 16px; color: #ffabf3; width: 100%">
+        <router-outlet />
+      </div>
+      <!-- /Router -->
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>

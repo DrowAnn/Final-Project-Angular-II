@@ -1,10 +1,13 @@
 :host {
   .main-container {
     display: flex;
-    flex-wrap: wrap;
-    padding: 16px;
-    min-height: calc(100vh - 166px);
-    background-color: aliceblue;
+    flex-direction: row;
+    min-height: 85.42vh;
+    background-color: rgb(0, 0, 0, 0.6);
+  }
+
+  .sideNavButtons {
+    margin: 1rem 1rem;
   }
 
   /* Absolute Center Spinner */
